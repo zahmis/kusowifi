@@ -1,7 +1,8 @@
+# error undef の設定
 set -eu
 
+# ロジック
 echo "今から始めるくそwifi"
-
 thisYear=`date "+%Y"`
 thisMonth=`date "+%m"`
 thisDay=`date "+%d"`
@@ -13,13 +14,10 @@ xDay=8
 restYear=$(((xYear - thisYear)*365));
 restMonth=$(((xMonth - thisMonth)*30));
 restDay=$((xDay - thisDay));
-
-echo ${thisYear}
-echo $restYear
-echo $restMonth
-echo $restDay
 restDays=$((restYear+restMonth+restDay+25))
 echo ${restDays}
+
+# slack の書式設定
 slackData()
 {
   restDays=$((restYear+restMonth+restDay+25))
@@ -38,5 +36,6 @@ slackData()
 EOF
 }
 
-
+# 環境変数は crontab に書いている
+# 通常の path では無理っぽい。直にコマンド打つのであればいける
 curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "${SLACK_WEBHOOK_URL}"
