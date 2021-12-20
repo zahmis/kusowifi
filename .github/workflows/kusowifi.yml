@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  schedule:
+    - cron: '0 9 * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run kusowifi shell
+        run: sh ../../kusowifi.sh
