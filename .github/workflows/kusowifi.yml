@@ -14,6 +14,8 @@ jobs:
         env: 
           SLACK_WEB_HOOK: ${{secrets.SLACK_WEB_HOOK}}
         run: |
+          echo ${SLACK_WEB_HOOK}
+          echo ${{SLACK_WEB_HOOK}}
           touch .env
           echo "SLACK_WEB_HOOK=${{secrets.SLACK_WEB_HOOK}}" >> .env
           echo ${{secrets.SLACK_WEB_HOOK}}
