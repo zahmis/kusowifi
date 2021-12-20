@@ -38,4 +38,4 @@ EOF
 
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
-curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "${secrets.SLACK_WEB_HOOK}"
+curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "${{secrets.SLACK_WEB_HOOK}}"
