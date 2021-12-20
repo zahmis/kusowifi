@@ -10,4 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
-        run: sh ./kusowifi.sh
+        run: |
+          touch .env
+          echo "SLACK_WEB_HOOK=${{secrets.SLACK_WEB_HOOK}}" >> .env
+          sh ./kusowifi.sh
