@@ -1,4 +1,4 @@
-hoge.sh# error undef の設定
+# error undef の設定
 set -eu
 
 # ロジック
