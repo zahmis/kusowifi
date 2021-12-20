@@ -13,7 +13,6 @@ jobs:
       - name: Run kusowifi shell
         env: 
           SLACK_WEB_HOOK: ${{secrets.SLACK_WEB_HOOK}}
-        uses: ./kusowifi.sh
         run: |
           touch .env
           echo "SLACK_WEB_HOOK=${{secrets.SLACK_WEB_HOOK}}" >> .env
