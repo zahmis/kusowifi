@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # error undef の設定
 set -eu
 
