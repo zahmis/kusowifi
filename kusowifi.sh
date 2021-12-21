@@ -41,5 +41,5 @@ EOF
 
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
-curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "https://hooks.slack.com/services/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"
+curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "https://hooks.slack.com/services/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"
 
