@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # error undef の設定
 set -eu
 
@@ -36,10 +38,7 @@ slackData()
 EOF
 }
 
-# echo ${HOGE}
-
-
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
-curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" https://hooks.slack.com/services/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
+curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" ${SLACK_WEBHOOK_URL}
 
