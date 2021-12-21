@@ -39,10 +39,8 @@ echo SLACK_WEB_HOOK
 echo ${HOGE}
 echo ${SLACK_WEBHOOK_URL}
 
-echo ${process.env.SLACK_WEBHOOK_URL}
-echo ${SLACK_WEBHOOK_URL}
 
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
-curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "${SLACK_WEBHOOK_URL}"
+curl -i -H "Content-type: application/json" -s -S -X POST -d "$(slackData)" "https://hooks.slack.com/services/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"
 
