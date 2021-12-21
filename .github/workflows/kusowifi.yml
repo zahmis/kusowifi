@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
         run: |
-        chmod 700 ./kusowifi.sh
-        sh ./kusowifi.sh
+          chmod 700 ./kusowifi.sh
+          sh ./kusowifi.sh
         env: 
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           HOGE: ${{secrets.HOGE}}
