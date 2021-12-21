@@ -16,5 +16,5 @@ jobs:
       - name: Run kusowifi shell
         run: |
           chmod 700 ./kusowifi.sh
-          curl -i -H "Content-type: application/json" -s -S -X POST -d "532" "https://hooks.slack.com/services/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"
+          curl -i -H "Content-type: application/json" -s -S -X POST -d "532" ${{secrets.SLACK_WEBHOOK_URL}}
 
