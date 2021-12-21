@@ -4,16 +4,14 @@ on:
   push:
   # schedule:
     # - cron: '*/5 * * * *'
-env: 
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-  HOGE: ${{secrets.HOGE}}
-
+        env: 
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          HOGE: ${{secrets.HOGE}}
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
-        run: |
-          chmod 700 ./kusowifi.sh
-          curl -i -H "Content-type: application/json" -s -S -X POST -d "532" "${{env.SLACK_WEBHOOK_URL}}"
+        run: sh ./kusowifi.sh
+
