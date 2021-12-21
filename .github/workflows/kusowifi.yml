@@ -16,5 +16,4 @@ jobs:
       - name: Run kusowifi shell
         run: |
           chmod 700 ./kusowifi.sh
-          curl -i -H "Content-type: application/json" -s -S -X POST -d "532" "${{secrets.SLACK_WEBHOOK_URL}}"
-
+          curl -i -H "Content-type: application/json" -s -S -X POST -d "532" "${{env.SLACK_WEBHOOK_URL}}"
