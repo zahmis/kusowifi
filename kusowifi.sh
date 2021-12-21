@@ -36,7 +36,9 @@ slackData()
 EOF
 }
 echo SLACK_WEB_HOOK
-echo "hoge"
+echo ${HOGE}
+echo ${SLACK_WEBHOOK_URL}
+
 echo ${process.env.SLACK_WEBHOOK_URL}
 echo ${SLACK_WEBHOOK_URL}
 

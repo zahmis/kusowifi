@@ -14,3 +14,4 @@ jobs:
         run: sh ./kusowifi.sh
         env: 
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          HOGE: ${{secrets.HOGE}}
