@@ -37,6 +37,7 @@ EOF
 }
 echo SLACK_WEB_HOOK
 echo "hoge"
+echo ${process.env.SLACK_WEBHOOK_URL}
 echo ${SLACK_WEBHOOK_URL}
 
 # 環境変数は crontab に書いている
