@@ -4,9 +4,6 @@ on:
   push:
   # schedule:
     # - cron: '*/5 * * * *'
-        env: 
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          HOGE: ${{secrets.HOGE}}
 jobs:
   build:
     runs-on: ubuntu-latest
