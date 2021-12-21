@@ -13,6 +13,6 @@ jobs:
       - name: Run kusowifi shell
         run: |
           chmod 700 ./kusowifi.sh
-          curl -i -H "Content-type: application/json" -s -S -X POST -d "hoge" --data @- "https://hooks.slack.com/services/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"
+          curl -i -H "Content-type: application/json" -s -S -X POST -d "hoge" --data @- "https://hooks.slack.com/services/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"
           sh ./kusowifi.sh
 
