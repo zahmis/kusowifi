@@ -4,11 +4,14 @@ on:
   push:
   # schedule:
     # - cron: '*/5 * * * *'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
-        run: sh ./kusowifi.sh
+        run: |
+          chmod 700 ./kusowifi.sh
+          sh ./kusowifi.sh
 
