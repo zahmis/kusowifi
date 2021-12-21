@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # error undef の設定
 set -eu
 
@@ -19,9 +18,15 @@ restDay=$((xDay - thisDay));
 restDays=$((restYear+restMonth+restDay+25))
 echo ${restDays}
 
+# 関数の定義
+say_hello () {
+    echo "Hello, world!"
+}
+# 関数の呼び出し
+say_hello
+
 # slack の書式設定
-slackData()
-{
+slackData () {
   restDays=$((restYear+restMonth+restDay+25))
   cat <<EOF
 {
@@ -37,6 +42,8 @@ slackData()
 }
 EOF
 }
+
+slackData
 
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
