@@ -36,7 +36,7 @@ slackData()
 EOF
 }
 
-echo ${HOGE}
+# echo ${HOGE}
 
 
 # 環境変数は crontab に書いている
