@@ -37,6 +37,7 @@ EOF
 }
 echo SLACK_WEB_HOOK
 echo ${SLACK_WEB_HOOK}
+echo "hoge"
 
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
