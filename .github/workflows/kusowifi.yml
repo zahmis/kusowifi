@@ -1,29 +1,48 @@
-name: CI
+# name: CI
 
-on:
-  push:
-  # schedule:
-    # - cron: '*/5 * * * *'
-# env: 
-#   TEAM: ${{secrets.TEAM}}
-#   BSTART: ${{secrets.BSTART}}
-#   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
-#   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+# on:
+#   push:
+#   # schedule:
+#     # - cron: '*/5 * * * *'
+# # env: 
+# #   TEAM: ${{secrets.TEAM}}
+# #   BSTART: ${{secrets.BSTART}}
+# #   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+# #   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
   
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Run kusowifi shell
+#         run: |
+#           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/${{ secrets.TEAM }}/${{ secrets.BSTART }}/${{ secrets.SLACK_TOKEN }}
+#           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "$SLACK_WEBHOOK_URL"
+#           sh ./kusowifi.sh
+#         env: 
+#           TEAM: ${{secrets.TEAM}}
+#           BSTART: ${{secrets.BSTART}}
+#           SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+#           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+
+name: Workflows with large secrets
+
+on: push
+
 jobs:
-  build:
+  my-job:
+    name: My Job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run kusowifi shell
-        run: |
-          # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/${{ secrets.TEAM }}/${{ secrets.BSTART }}/${{ secrets.SLACK_TOKEN }}
-          # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "$SLACK_WEBHOOK_URL"
-          sh ./kusowifi.sh
-        env: 
-          TEAM: ${{secrets.TEAM}}
-          BSTART: ${{secrets.BSTART}}
-          SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
-          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-
+      - name: Decrypt large secret
+        run: ./kusowifi.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+      # This command is just an example to show your secret being printed
+      # Ensure you remove any print statements of your secrets. GitHub does
+      # not hide secrets that use this workaround.
+      - name: Test printing your secret (Remove this step in production)
+        run: cat $HOME/secrets/my_secret.json
 
