@@ -14,7 +14,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
         with: 
