@@ -38,11 +38,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
         run: |
-          touch .env
-          echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
-          hoge "SLACK_WEBHOOK_URL"
+          # touch .env
+          # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
+          hoge-command "SLACK_WEBHOOK_URL"
           # ./kusowifi.sh
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' hoge
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $(hoge)
 
         shell: bash
         env:
