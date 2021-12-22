@@ -15,6 +15,5 @@ jobs:
       - name: Run kusowifi shell
         run: |
           chmod 700 ./kusowifi.sh
-          echo ${env.KUSO}
           # sh ./kusowifi.sh
 
