@@ -37,7 +37,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
-        run: ./kusowifi.sh
+        run: |
+          touch .env
+          echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
+          ./kusowifi.sh
         shell: bash
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
