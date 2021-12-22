@@ -44,7 +44,9 @@ EOF
 }
 
 slackData
-
+echo env.KUSO
+echo ${env.KUSO}
+echo $(KUSO)
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
 curl -X POST -H 'Content-type: application/json' --data "$(slackData)" "${env.KUSO}"
