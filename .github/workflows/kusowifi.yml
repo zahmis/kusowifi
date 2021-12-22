@@ -48,7 +48,7 @@ jobs:
           # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
           hoge-command ${{secrets.SLACK_WEBHOOK_URL}}
           # ./kusowifi.sh
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' hoge-command
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' env.SLACK_WEBHOOK_URL
 
         shell: bash
   
