@@ -15,5 +15,5 @@ jobs:
       - name: Run kusowifi shell
         run: |
           chmod 700 ./kusowifi.sh
-          # sh ./kusowifi.sh
+          sh ./kusowifi.sh
 
