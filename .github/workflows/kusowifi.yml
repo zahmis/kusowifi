@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
         run: |
-          echo ${env.TEAM}
-          chmod 700 ./kusowifi.sh
-          sh ./kusowifi.sh
+          # chmod 700 ./kusowifi.sh
+          curl -X POST -H 'Content-type: application/json' --data "$(slackData)" `https://hooks.slack.com/services/$TEAM/$BSTART/$TOKEN`
+
 
