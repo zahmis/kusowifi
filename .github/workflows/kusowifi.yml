@@ -8,6 +8,7 @@ env:
   TEAM: ${{secrets.TEAM}}
   BSTART: ${{secrets.BSTART}}
   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+  SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
   
 jobs:
   build:
@@ -18,6 +19,6 @@ jobs:
         run: |
           # chmod 700 ./kusowifi.sh
           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/${{ secrets.TEAM }}/${{ secrets.BSTART }}/${{ secrets.SLACK_TOKEN }}
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' process.env.SLACK_WEBHOOK_URL
 
 
