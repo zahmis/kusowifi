@@ -16,4 +16,5 @@ jobs:
         run: |
           chmod 700 ./kusowifi.sh
           echo ${env.KUSO}
-          curl -X POST -H 'Content-type: application/json' --data "$(slackData)" ${env.KUSO}
+          # sh ./kusowifi.sh
+
