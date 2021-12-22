@@ -6,6 +6,8 @@ on:
     # - cron: '*/5 * * * *'
 env: 
   TEAM: ${{secrets.SLACK.TEAM}}
+  BSTART: ${{secrets.SLACK.BSTART}}
+  TOKEN: ${{secrets.SLACK.TOKEN}}
   
 jobs:
   build:
