@@ -14,13 +14,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - shell: bash
       - uses: actions/checkout@v2
       - name: Run kusowifi shell
+        with: 
+          TEAM: ${{secrets.TEAM}}
+          BSTART: ${{secrets.BSTART}}
+          SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
         run: |
           touch .env
           $SLACK_WEBHOOK_URL >> .env
           # chmod 700 ./kusowifi.sh
           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/${{ secrets.TEAM }}/${{ secrets.BSTART }}/${{ secrets.SLACK_TOKEN }}
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' env.SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "$SLACK_WEBHOOK_URL"
 
 
