@@ -40,9 +40,9 @@ jobs:
         run: ./kusowifi.sh
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
       # This command is just an example to show your secret being printed
       # Ensure you remove any print statements of your secrets. GitHub does
       # not hide secrets that use this workaround.
-      - name: Test printing your secret (Remove this step in production)
-        run: cat ./kusowifi.sh
 
