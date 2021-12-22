@@ -7,7 +7,7 @@ on:
 env: 
   TEAM: ${{secrets.TEAM}}
   BSTART: ${{secrets.BSTART}}
-  TOKEN: ${{secrets.TOKEN}}
+  TOKEN: ${{secrets.SLACK_TOKEN}}
   
 jobs:
   build:
