@@ -47,5 +47,5 @@ echo $KUSO
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
 # ci で直に url を書くと gitgurdian が差し止める。invalid になった後で sh で叩いても invalid
-curl -X POST -H 'Content-type: application/json' --data "$(slackData)" $KUSO
+curl -X POST -H 'Content-type: application/json' --data "$(slackData)" "$KUSO"
 
