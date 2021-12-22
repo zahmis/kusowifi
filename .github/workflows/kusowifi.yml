@@ -41,7 +41,9 @@ jobs:
           touch .env
           echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
           hoge "SLACK_WEBHOOK_URL"
-          ./kusowifi.sh
+          # ./kusowifi.sh
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' hoge
+
         shell: bash
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
