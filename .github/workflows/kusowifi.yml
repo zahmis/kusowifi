@@ -36,11 +36,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - shell: bash
-      - env:
+        env:
           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
         run: |
           # echo $HOGE これが正解っぽい
           # ./kusowifi.sh
-          echo $HOGE
           curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $SLACK_WEBHOOK_URL
 
