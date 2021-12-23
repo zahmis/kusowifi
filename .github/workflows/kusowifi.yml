@@ -48,11 +48,12 @@ jobs:
         run: |
           # echo ${env.HOGE} bad subs
           # echo $env.HOGE 結果は.HOGE
-          echo $HOGE
+          # echo $HOGE これが正解っぽい
           # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
           # hoge-command ${{secrets.SLACK_WEBHOOK_URL}}
           # ./kusowifi.sh
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' env.SLACK_WEBHOOK_URL
+
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $SLACK_WEBHOOK_URL
 
         shell: bash
   
