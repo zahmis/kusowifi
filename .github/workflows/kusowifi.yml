@@ -19,5 +19,5 @@ jobs:
           TOKEN_GENE: "nUF9Jp7JrWK30VvL0z6SggPy"
         run: |
           # echo $HOGE これが正解っぽい
-          # ./kusowifi.sh
+          ./kusowifi.sh
           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/T02633YV1GW/B02R6HYP4LT/$TOKEN_GENE
