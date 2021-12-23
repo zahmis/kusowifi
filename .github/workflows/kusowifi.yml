@@ -32,7 +32,7 @@ on: push
 
 jobs:
   my-job:
-    name: My Job
+    name: test
     runs-on: ubuntu-latest
     steps:
       - shell: bash
