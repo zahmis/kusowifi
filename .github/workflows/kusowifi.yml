@@ -28,12 +28,7 @@
 
 name: Workflows with large secrets
 
-on:
-  workflow_call:
-    secrets:
-      SLACK_WEBHOOK_URL:
-        description: 'A token passed from the caller workflow'
-        required: false
+on: push
   
 env:
     LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
