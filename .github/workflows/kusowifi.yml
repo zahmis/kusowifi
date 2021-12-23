@@ -41,5 +41,5 @@ jobs:
           # echo $HOGE これが正解っぽい
           # ./kusowifi.sh
           echo $HOGE
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{secrets.SLACK_WEBHOOK_URL}}
+          curl ${{secrets.SLACK_WEBHOOK_URL}} -X POST -H 'Content-type: application/json' -d @-'{"text":"Hello, World!"}' 
 
