@@ -28,8 +28,7 @@
 
 name: Workflows with large secrets
 
-on: |
-  push
+on:
   workflow_call:
     secrets:
       SLACK_WEBHOOK_URL:
