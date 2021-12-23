@@ -26,17 +26,9 @@
 #           SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
 #           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
 
-name: Workflows with large secrets
+name: Test work
 
 on: push
-  
-env:
-    LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-    TEAM: ${{secrets.TEAM}}
-    BSTART: ${{secrets.BSTART}}
-    SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
-    SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-    HOGE: "kusowifi"
 
 jobs:
   my-job:
@@ -44,20 +36,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Decrypt large secret
+      - name: test
         run: |
-          # echo ${env.HOGE} bad subs
-          # echo $env.HOGE 結果は.HOGE
           # echo $HOGE これが正解っぽい
-          # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
-          # hoge-command ${{secrets.SLACK_WEBHOOK_URL}}
           # ./kusowifi.sh
           echo $HOGE
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $SLACK_WEBHOOK_URL
-
-        shell: bash
-  
-      # This command is just an example to show your secret being printed
-      # Ensure you remove any print statements of your secrets. GitHub does
-      # not hide secrets that use this workaround.
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{secrets.SLACK_WEBHOOK_URL}}
 
