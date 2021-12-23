@@ -47,7 +47,8 @@ jobs:
       - name: Decrypt large secret
         run: |
           # echo ${env.HOGE} bad subs
-          echo $env.HOGE
+          # echo $env.HOGE 結果は.HOGE
+          echo $HOGE
           # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
           # hoge-command ${{secrets.SLACK_WEBHOOK_URL}}
           # ./kusowifi.sh
