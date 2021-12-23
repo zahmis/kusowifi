@@ -28,7 +28,14 @@
 
 name: Workflows with large secrets
 
-on: push
+on: |
+  push
+  workflow_call:
+    secrets:
+      SLACK_WEBHOOK_URL:
+        description: 'A token passed from the caller workflow'
+        required: false
+  
 env:
     LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
     TEAM: ${{secrets.TEAM}}
@@ -44,13 +51,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Decrypt large secret
         run: |
-          echo "{KUSO}={kusa}" >> $GITHUB_ENV
-          echo $KUSO
-          # touch .env
-          # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
-          # hoge-command ${{secrets.SLACK_WEBHOOK_URL}}
           # ./kusowifi.sh
-          # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' env.SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' env.SLACK_WEBHOOK_URL
 
         shell: bash
   
