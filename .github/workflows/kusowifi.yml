@@ -3,7 +3,7 @@ name: KUSO wifi counter
 on:
   # push:
   schedule:
-    - cron: '* 23 * * *'
+    - cron: '0 23 * * *'
 # env: 
 #   TEAM: ${{secrets.TEAM}}
 #   BSTART: ${{secrets.BSTART}}
