@@ -1,34 +1,9 @@
-# name: CI
+name: wifi notification work
 
-# on:
-#   push:
-#   # schedule:
-#     # - cron: '*/5 * * * *'
-# # env: 
-# #   TEAM: ${{secrets.TEAM}}
-# #   BSTART: ${{secrets.BSTART}}
-# #   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
-# #   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-  
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Run kusowifi shell
-#         run: |
-#           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/${{ secrets.TEAM }}/${{ secrets.BSTART }}/${{ secrets.SLACK_TOKEN }}
-#           # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' "$SLACK_WEBHOOK_URL"
-#           sh ./kusowifi.sh
-#         env: 
-#           TEAM: ${{secrets.TEAM}}
-#           BSTART: ${{secrets.BSTART}}
-#           SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
-#           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-
-name: Test work
-
-on: push
+on: 
+  push:
+    schedule:
+      - cron: '*/5 * * * *'
 
 jobs:
   my-job:
@@ -45,4 +20,4 @@ jobs:
         run: |
           # echo $HOGE これが正解っぽい
           # ./kusowifi.sh
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/T02633YV1GW/B02R6HYP4LT/$TOKEN_GENE
+          # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/T02633YV1GW/B02R6HYP4LT/$TOKEN_GENE
