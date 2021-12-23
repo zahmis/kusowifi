@@ -46,7 +46,7 @@ EOF
 # 環境変数は crontab に書いている
 # 通常の path では無理っぽい。直にコマンド打つのであればいける
 # ci で直に url を書くと gitgurdian が差し止める。invalid になった後で sh で叩いても invalid
-curl -X POST -H 'Content-type: application/json' --data "$(slackData)" https://hooks.slack.com/services/T02633YV1GW/B02R6HYP4LT/$TOKEN_GENE
+curl -X POST -H 'Content-type: application/json' --data "$(slackData)" https://hooks.slack.com/services/T02633YV1GW/B02R6HYP4LT/${env.TOKEN_GENE}
 
 
 
