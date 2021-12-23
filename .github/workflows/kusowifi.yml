@@ -1,23 +1,22 @@
-#!/bin/sh
-name: wifi notification work
+name: CI
 
-on: 
+on:
   push:
-    schedule:
-      - cron: '*/5 * * * *'
-
+  # schedule:
+    # - cron: '*/5 * * * *'
+  env:
+    SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
+    TEAM: ${{secrets.TEAM}}
+    BSTART: ${{secrets.BSTART}}
+    TOKEN: ${{secrets.SLACK_TOKEN}}
+    TOKEN_GENE: “nUF9Jp7JrWK30VvL0z6SggPy”
+  
 jobs:
-  my-job:
-    name: test
+  build:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        env:
-          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-          TEAM: ${{secrets.TEAM}}
-          BSTART: ${{secrets.BSTART}}
-          TOKEN: ${{secrets.SLACK_TOKEN}}
-          TOKEN_GENE: "nUF9Jp7JrWK30VvL0z6SggPy"
-        run: 
+      - uses: actions/checkout@v2
+      - name: Run kusowifi shell
+        run: |
           sh ./kusowifi.sh
-          # curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/T02633YV1GW/B02R6HYP4LT/$TOKEN_GENE
+
