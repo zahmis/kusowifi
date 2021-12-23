@@ -36,7 +36,7 @@ env:
     BSTART: ${{secrets.BSTART}}
     SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
     SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-    HOGE: "hoge"
+    HOGE: "kusowifi"
 
 jobs:
   my-job:
@@ -52,7 +52,7 @@ jobs:
           # echo "SLACK_WEBHOOK_URL=${{secrets.SLACK_WEBHOOK_URL}}" >> .env
           # hoge-command ${{secrets.SLACK_WEBHOOK_URL}}
           # ./kusowifi.sh
-
+          echo $HOGE
           curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $SLACK_WEBHOOK_URL
 
         shell: bash
