@@ -4,30 +4,15 @@ set -eu
 
 # ロジック
 echo "今から始めるくそwifi"
-thisYear=`date "+%Y"`
-thisMonth=`date "+%m"`
-thisDay=`date "+%d"`
+START=`date +%s`
+END=`(date -j -f "%Y-%m-%d" "2023-05-08" +%s)`
+restSeconds=$((END-START))
 
-xYear=2023
-xMonth=5
-xDay=8
-
-restYear=$(((xYear - thisYear)*365));
-restMonth=$(((xMonth - thisMonth)*30));
-restDay=$((xDay - thisDay));
-restDays=$((restYear+restMonth+restDay+25))
-echo ${restDays}
-
-# 関数の定義
-say_hello () {
-    echo "Hello, world!"
-}
-# 関数の呼び出し
-say_hello
+echo ${restSeconds}
 
 # slack の書式設定
 slackData () {
-  restDays=$((restYear+restMonth+restDay+25))
+  restDays="$((${restSeconds} / (60 * 60 * 24)))"
   cat <<EOF
 {
     "blocks": [
