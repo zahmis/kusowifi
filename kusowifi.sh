@@ -5,7 +5,7 @@ set -eu
 # ロジック
 echo "今から始めるくそwifi"
 START=`date +%s`
-END=`(date -f "%Y-%m-%d" "2023-05-08" +)`
+END=`(date -f "%Y-%m-%d" "2023-05-08")`
 restSeconds=$((END-START))
 
 echo ${restSeconds}
