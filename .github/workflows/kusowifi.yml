@@ -1,7 +1,7 @@
 name: KUSO wifi counter
 
 on:
-  # push:
+  push:
   schedule:
     - cron: '0 23 * * *'
 # env: 
