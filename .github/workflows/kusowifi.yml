@@ -1,15 +1,15 @@
 name: KUSO wifi counter
 
 on:
-  # push:
+  push:
   schedule:
-    - cron: '0 23 * * *'
-# env: 
+    - cron: "0 23 * * *"
+# env:
 #   TEAM: ${{secrets.TEAM}}
 #   BSTART: ${{secrets.BSTART}}
 #   SLACK_TOKEN: ${{secrets.SLACK_TOKEN}}
 #   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
